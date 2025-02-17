@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { WalletEntity } from "src/modules/wallet/entity/wallet.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity('user')
 export class UserEntity {
     @PrimaryGeneratedColumn('increment')
     id : number;
@@ -12,5 +13,6 @@ export class UserEntity {
     balance : number;//the user's money on account call balance. 
     @CreateDateColumn()
     created_at : Date;
-
+    @OneToMany(() => WalletEntity , wallet => wallet.user)//one user can have many wallets.
+    transactions : WalletEntity[];
 }
