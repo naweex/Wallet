@@ -8,7 +8,7 @@ export class WalletController {
 
   @Post('deposit')
   deposit(@Body() depositDto : DepositDto){
-    
+    return this.walletService.deposit(depositDto);
   }
 
 }
