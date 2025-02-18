@@ -7,5 +7,6 @@ export class UserController {
 
   @Get('/:id')
   findById(@Param('id' , ParseIntPipe) id : number){
+    return this.userService.findById(id)
   }
 }
