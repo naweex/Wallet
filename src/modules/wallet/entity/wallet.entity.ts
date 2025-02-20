@@ -12,6 +12,10 @@ export class WalletEntity {
     amount : number;
     @Column()
     invoice_number : string;
+    @Column({nullable : true})
+    reason : string;
+    @Column({nullable : true})
+    productId : number;
     @CreateDateColumn()
     created_at : Date;
     @Column()
